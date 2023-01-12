@@ -17,156 +17,171 @@ class _FurnitureScreenState extends State<FurnitureScreen> {
       backgroundColor: const Color.fromRGBO(228, 229, 231, 1),
       body: Column(
         children: [
-          Stack(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0.0, 2.0),
-                      blurRadius: 6.0,
+          Padding(
+            padding: const EdgeInsets.only(top: 12.0),
+            child: Stack(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(0.0, 2.0),
+                        blurRadius: 6.0,
+                      ),
+                    ],
+                  ),
+                  child: Hero(
+                    tag: widget.furniture.imageUrl,
+                    child: Image(
+                      width: double.infinity,
+                      image: AssetImage(widget.furniture.imageUrl),
+                      fit: BoxFit.cover,
                     ),
-                  ],
-                ),
-                child: Hero(
-                  tag: widget.furniture.imageUrl,
-                  child: Image(
-                    width: double.infinity,
-                    image: AssetImage(widget.furniture.imageUrl),
-                    fit: BoxFit.cover,
                   ),
                 ),
-              ),
-              Positioned(
-                top: 20,
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  iconSize: 30.0,
-                  color: Colors.black,
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-              Positioned(
-                  top: 30,
-                  right: 15,
-                  child: Container(
-                    padding: const EdgeInsets.fromLTRB(6, 1, 6, 3),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: const Color.fromRGBO(228, 229, 231, 1),
-                    ),
-                    child: Text(
-                      '⭐ ${widget.furniture.rating}',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )),
-              Positioned(
-                  bottom: 64,
-                  left: 20,
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    color: const Color.fromRGBO(244, 193, 89, 1),
-                    child: Text(
-                      '\$${widget.furniture.price}',
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-                    ),
-                  )),
-              Positioned(
-                  bottom: 17,
-                  left: 20,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 7),
+                Positioned(
+                  top: 20,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    iconSize: 30.0,
                     color: Colors.black,
-                    child: Text(
-                      widget.furniture.name,
-                      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
-                    ),
-                  ))
-            ],
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ),
+                Positioned(
+                    top: 30,
+                    right: 15,
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(6, 1, 6, 3),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        color: const Color.fromRGBO(228, 229, 231, 1),
+                      ),
+                      child: Text(
+                        '⭐ ${widget.furniture.rating}',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )),
+                Positioned(
+                    bottom: 64,
+                    left: 20,
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      color: const Color.fromRGBO(244, 193, 89, 1),
+                      child: Text(
+                        '\$${widget.furniture.price}',
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                      ),
+                    )),
+                Positioned(
+                    bottom: 17,
+                    left: 20,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 7),
+                      color: Colors.black,
+                      child: Text(
+                        widget.furniture.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
+                      ),
+                    ))
+              ],
+            ),
           ),
           const SizedBox(
             height: 20.0,
           ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                const Text(
-                  'Description : ',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Text(
-                    widget.furniture.description,
-                    style: const TextStyle(
-                      fontSize: 20,
+          Expanded(
+            child: Align(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const Text(
+                      'Description : ',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Row(children: [
-                    const Text(
-                      "\u2022",
-                      style: TextStyle(fontSize: 20),
-                    ), //bullet text
-                    const SizedBox(
-                      width: 10,
-                    ), //space between bullet and text
-                    Expanded(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: Text(
-                        widget.furniture.line1,
-                        style: const TextStyle(fontSize: 20),
-                      ), //text
-                    )
-                  ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Row(children: [
-                    const Text(
-                      "\u2022",
-                      style: TextStyle(fontSize: 20),
-                    ), //bullet text
+                        widget.furniture.description,
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                     const SizedBox(
-                      width: 10,
-                    ), //space between bullet and text
-                    Expanded(
-                      child: Text(
-                        widget.furniture.line2,
-                        style: const TextStyle(fontSize: 20),
-                      ), //text
+                      height: 10.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 14.0),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                            child: Row(children: [
+                              const Text(
+                                "\u2022",
+                                style: TextStyle(fontSize: 30),
+                              ), //bullet text
+                              const SizedBox(
+                                width: 10,
+                              ), //space between bullet and text
+                              Expanded(
+                                child: Text(
+                                  widget.furniture.line1,
+                                  style: const TextStyle(fontSize: 20),
+                                ), //text
+                              )
+                            ]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                            child: Row(children: [
+                              const Text(
+                                "\u2022",
+                                style: TextStyle(fontSize: 30),
+                              ), //bullet text
+                              const SizedBox(
+                                width: 10,
+                              ), //space between bullet and text
+                              Expanded(
+                                child: Text(
+                                  widget.furniture.line2,
+                                  style: const TextStyle(fontSize: 20),
+                                ), //text
+                              )
+                            ]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                            child: Row(children: [
+                              const Text(
+                                "\u2022",
+                                style: TextStyle(fontSize: 30),
+                              ), //bullet text
+                              const SizedBox(
+                                width: 10,
+                              ), //space between bullet and text
+                              Expanded(
+                                child: Text(
+                                  widget.furniture.line3,
+                                  style: const TextStyle(fontSize: 20),
+                                ), //text
+                              )
+                            ]),
+                          )
+                        ],
+                      ),
                     )
-                  ]),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Row(children: [
-                    const Text(
-                      "\u2022",
-                      style: TextStyle(fontSize: 20),
-                    ), //bullet text
-                    const SizedBox(
-                      width: 10,
-                    ), //space between bullet and text
-                    Expanded(
-                      child: Text(
-                        widget.furniture.line3,
-                        style: const TextStyle(fontSize: 20),
-                      ), //text
-                    )
-                  ]),
-                )
-              ],
+              ),
             ),
           )
         ],
