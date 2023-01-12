@@ -130,6 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 40,
               ),
               const FurnitureCarousal(),
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),
