@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_app/carousals/furniture_screen/furniture_screen.dart';
+import 'package:furniture_app/furniture_screen/furniture_screen.dart';
 import 'package:furniture_app/model/furniture_model.dart';
 
 class FurnitureCarousal extends StatefulWidget {
