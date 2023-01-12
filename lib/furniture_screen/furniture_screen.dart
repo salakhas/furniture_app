@@ -89,6 +89,86 @@ class _FurnitureScreenState extends State<FurnitureScreen> {
                   ))
             ],
           ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                const Text(
+                  'Description : ',
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Text(
+                    widget.furniture.description,
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Row(children: [
+                    const Text(
+                      "\u2022",
+                      style: TextStyle(fontSize: 20),
+                    ), //bullet text
+                    const SizedBox(
+                      width: 10,
+                    ), //space between bullet and text
+                    Expanded(
+                      child: Text(
+                        widget.furniture.line1,
+                        style: const TextStyle(fontSize: 20),
+                      ), //text
+                    )
+                  ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Row(children: [
+                    const Text(
+                      "\u2022",
+                      style: TextStyle(fontSize: 20),
+                    ), //bullet text
+                    const SizedBox(
+                      width: 10,
+                    ), //space between bullet and text
+                    Expanded(
+                      child: Text(
+                        widget.furniture.line2,
+                        style: const TextStyle(fontSize: 20),
+                      ), //text
+                    )
+                  ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Row(children: [
+                    const Text(
+                      "\u2022",
+                      style: TextStyle(fontSize: 20),
+                    ), //bullet text
+                    const SizedBox(
+                      width: 10,
+                    ), //space between bullet and text
+                    Expanded(
+                      child: Text(
+                        widget.furniture.line3,
+                        style: const TextStyle(fontSize: 20),
+                      ), //text
+                    )
+                  ]),
+                )
+              ],
+            ),
+          )
         ],
       ),
       bottomNavigationBar: Container(
